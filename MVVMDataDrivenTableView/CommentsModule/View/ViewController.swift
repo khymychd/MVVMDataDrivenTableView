@@ -27,8 +27,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         initialize()
         presentView.frame = self.view.frame
-        viewModel.updateViewData = {[weak self] viewData in self?.presentView.viewData = viewData}
-        presentView.userAction = {[weak self] userAction in self?.viewModel.userAction = userAction}
+        viewModel.updateViewData = {[unowned self] viewData in self.presentView.viewData = viewData}
+        presentView.userAction = {[unowned self] userAction in self.viewModel.userAction = userAction}
         self.view.addSubview(presentView)
         
     }
