@@ -8,30 +8,21 @@
 import Foundation
 
 protocol DetailViewModelProtocol {
+    var text: String { get}
     func back()
-    func showText() -> String
 }
 
-class DetailViewModel:DetailViewModelProtocol {
+class DetailViewModel: DetailViewModelProtocol {
 
-    let router:SimpleRouterProtocol
-    private var comment:Comment
+    let text: String
+    private let router: SimpleRouterProtocol
     
-    required init(router:SimpleRouterProtocol, comment:Comment) {
+    init(router: SimpleRouterProtocol, comment: Comment) {
         self.router = router
-        self.comment = comment
-        
-        
+        self.text = comment.body ?? "Empty text placeholder"
     }
-    
-    
-    func showText() -> String {
-       return comment.body!
-    }
-    
-    
+
     func back() {
         router.back()
     }
-    
 }

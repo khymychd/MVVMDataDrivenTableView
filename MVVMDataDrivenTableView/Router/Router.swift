@@ -12,11 +12,11 @@ protocol SimpleRouterProtocol {
     func back()
 }
 
-class SimplePouter:SimpleRouterProtocol {
+class SimplePouter: SimpleRouterProtocol {
 
-    var navigationController:UINavigationController
+    var navigationController: UINavigationController
     
-    init(navigationController:UINavigationController) {
+    init(navigationController :UINavigationController) {
         self.navigationController = navigationController
     }
     
